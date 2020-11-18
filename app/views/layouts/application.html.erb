@@ -10,7 +10,7 @@
   </head>
 
   <body>
-  <header>
+    <header>
       <div class="header-logo">
         <%= link_to("TweetApp","/") %>
       </div>
@@ -26,6 +26,11 @@
         </li>
       </ul>
     </header>
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -8,5 +8,8 @@
         <%= @post.created_at %>
       </div>
     </div>
+    <div class="post-menus">
+        <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+    </div>
   </div>
 </div>
