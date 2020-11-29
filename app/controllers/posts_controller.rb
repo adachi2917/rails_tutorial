@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -15,33 +15,31 @@ class PostsController < ApplicationController
     @post = Post.new(content: params[:content])
     if @post.save
       flash[:notice] = "投稿を作成しました"
-      redirect_to("/posts/index")
+      redirect_to('/posts/index')
     else
-      render("/posts/new")
+      render('/posts/new')
     end
   end
 
   def update
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
     @post.content = params[:content]
     if @post.save
       flash[:notice] = "投稿を編集しました"
-      redirect_to("/posts/index")
+      redirect_to('/posts/index')
     else
-      render("posts/edit")
+      render('posts/edit')
     end
-
   end
 
   def edit
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
   end
 
   def destroy
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
     @post.destroy
     flash[:notice] = "投稿を削除しました"
-    redirect_to("/posts/index")
+    redirect_to('/posts/index')
   end
 end
-

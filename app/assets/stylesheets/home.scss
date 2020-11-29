@@ -1,4 +1,4 @@
-/* reset ================================ */
+/* reset */
 * {
   box-sizing: border-box;
 }
@@ -35,7 +35,7 @@ form input[type="submit"] {
   cursor: pointer;
 }
 
-/* 共通レイアウト ================================ */
+/* 共通レイアウト */
 body {
   color: #2d3133;
   background-color: #3ecdc6;
@@ -60,7 +60,7 @@ body {
   clear: both;
 }
 
-/* ヘッダー ================================ */
+/* ヘッダー */
 header {
   height: 64px;
   position: absolute;
@@ -113,7 +113,7 @@ header {
   font-size: 13px;
 }
 
-/* top ================================ */
+/* top */
 .top-main {
   padding: 200px 0 100px;
   text-align: center;
@@ -146,7 +146,7 @@ header {
   font-size: 24px;
 }
 
-/* about ================================ */
+/* about*/
 .about-main {
   padding: 180px 8% 0;
   color: white;
@@ -167,7 +167,7 @@ header {
   width: 84%;
 }
 
-/* フォーム================================ */
+/* フォーム */
 .form {
   max-width: 600px;
   margin: 0 auto;
@@ -225,7 +225,7 @@ header {
   clear: both;
 }
 
-/* フラッシュ ================================ */
+/* フラッシュ  */
 .flash {
   padding: 10px 0;
   color: white;
