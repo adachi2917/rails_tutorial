@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(content: params[:content])
+    @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "投稿を作成しました"
       redirect_to('/posts/index')
@@ -41,5 +41,9 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:notice] = "投稿を削除しました"
     redirect_to('/posts/index')
+  end
+  private
+  def post_params
+    params.require(:post).permit(:content)
   end
 end
