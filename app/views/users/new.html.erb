@@ -8,12 +8,12 @@
             <%= message %>
           </div>
         <% end %>
-        <%= form_with url:"/users/create" do %>
-          <p>ユーザー名</p>
-          <input name="name" value="<%= @user.name %>">
-          <p>メールアドレス</p>
-          <input name="email" value="<%= @user.email %>">
-          <input type="submit" value="新規登録">
+        <%= form_with url:"/users/create" do |f| %>
+          <%= f.label :name, 'ユーザー名' %>
+          <%= f.text_field :name %>
+          <%= f.label :name, 'メールアドレス' %>
+          <%= f.text_field :email %>
+          <%= f.submit "新規登録"%>
         <% end %>
       </div>
     </div>
