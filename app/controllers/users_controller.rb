@@ -20,6 +20,9 @@ class UsersController < ApplicationController
       render("users/new")
     end
   end
+  def update
+
+  end
 
   private
   def user_params
