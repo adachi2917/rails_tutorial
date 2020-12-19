@@ -4,7 +4,10 @@ class PostsController < ApplicationController
     @posts = Post.all.order(created_at: :desc)
   end
 
-  def show; end
+  def show
+    @comments = @post.comments
+    @comment = Comment.new
+  end
 
   def new
     @post = Post.new
