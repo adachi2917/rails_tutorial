@@ -36,9 +36,12 @@ class PostsController < ApplicationController
   def edit; end
 
   def destroy
-    @post.destroy
-    flash[:notice] = "投稿を削除しました"
-    redirect_to('/posts/index')
+    if @post.destroy
+      flash[:notice] = "投稿を削除しました"
+      redirect_to('/posts/index')
+    else
+      redirect_to('/posts/edit')
+    end
   end
 
   private
