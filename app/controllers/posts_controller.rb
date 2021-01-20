@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    tag_list = params[:tag_name].split(",")
     if @post.save
       flash[:notice] = "投稿を作成しました"
       redirect_to('/posts/index')
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
   def update
     @post.content = params[:content]
     if @post.save
+      @post.save_posts(tag_list)
       flash[:notice] = "投稿を編集しました"
       redirect_to('/posts/index')
     else
