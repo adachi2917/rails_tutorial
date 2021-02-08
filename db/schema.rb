@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_01_13_070204) do
   end
 
   create_table "tags", force: :cascade do |t|
+    t.text "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

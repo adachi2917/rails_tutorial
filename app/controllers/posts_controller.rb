@@ -14,6 +14,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    binding.pry
     @post = Post.new(post_params)
     tag_list = params[:tag_name].split(",")
     if @post.save

@@ -10,6 +10,9 @@
             </div>
           <% end %>
           <textarea name="content"><%= @post.content %></textarea>
+          <%= collection_check_boxes(:post, :tag_ids, Tag.all, :id, :name) do |t| %>
+            <% t.label { t.check_box + t.text } %>
+          <% end %>
           <input type="submit" value="保存">
         </div>
       </div>
