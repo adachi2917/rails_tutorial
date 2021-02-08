@@ -49,7 +49,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:content)
+    params.permit(:content, { :tag_ids=> [] })
   end
 
   def find_post

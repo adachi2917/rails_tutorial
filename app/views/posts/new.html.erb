@@ -12,11 +12,11 @@
                     <textarea name="content"><%= @post.content %></textarea>
                     <div class="check_box">
                         <span>タグ</span>
-                        <%= form.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+                        <%= collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |t| %>
                             <div>
-                                <%= tag.label do %>
-                                    <%= tag.check_box %>
-                                    <%= tag.text %>
+                                <%= t.label do %>
+                                    <%= t.check_box %>
+                                    <%= t.text %>
                                 <% end %>
                             </div>
                         <% end %>
