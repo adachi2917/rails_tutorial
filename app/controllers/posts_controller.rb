@@ -14,9 +14,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    binding.pry
     @post = Post.new(post_params)
-    tag_list = params[:tag_name].split(",")
+    binding.pry
     if @post.save
       flash[:notice] = "投稿を作成しました"
       redirect_to('/posts/index')
@@ -50,7 +49,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:content, { :tag_ids=> [] })
+    params.require(:post).permit(:content, { tag_ids: [] })
   end
 
   def find_post

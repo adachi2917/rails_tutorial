@@ -13,12 +13,13 @@
                     <%= form_with url: "/posts/new", model: @post,local: true do |f| %>
                         <%= f.text_field :content %>
                         <%= f.fields_for :tags do |tag| %>
-                        <div class="check_box">
-                        <span>タグ</span>
-                            <%= collection_check_boxes(:post, :tag_ids, Tag.all, :id, :name) do |t| %>
-                                <% t.label { t.check_box + t.text } %>
-                            <% end %>
-                        </div>
+                            <div class="check_box">
+                            <span>タグ</span>
+                                <%= collection_check_boxes(:post, :tag_ids, Tag.all, :id, :name) do |t| %>
+                                    <% t.label { t.check_box + t.text } %>
+                                <% end %>
+                            </div>
+                        <% end %>
                         <%= f.submit "投稿する" %>
                     <% end %>
                 <% end %>
