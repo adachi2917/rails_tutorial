@@ -9,11 +9,19 @@
               <%= message %>
             </div>
           <% end %>
-          <textarea name="content"><%= @post.content %></textarea>
-          <%= collection_check_boxes(:post, :tag_ids, Tag.all, :id, :name) do |t| %>
-            <% t.label { t.check_box + t.text } %>
+          <%= form_with url: "/posts/#{@post.id}/update", model: @post,local: true do |f| %>
+            <%= f.text_field :content %>
+            <%= f.fields_for :tags do |tag| %>
+              <div class="check_box">
+                <span>タグ</span>
+                <%= collection_check_boxes(:post, :tag_ids, Tag.all, :id, :name) do |t| %>
+                  <% t.label { t.check_box + t.text } %>
+                <% end %>
+              </div>
+            <% end %>
+            <%= f.submit "保存" %>
+            <% binding.pry %>
           <% end %>
-          <input type="submit" value="保存">
         </div>
       </div>
     <% end %>
