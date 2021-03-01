@@ -10,7 +10,7 @@
             </div>
           <% end %>
           <%= form_with url: "/posts/#{@post.id}/update", model: @post,local: true do |f| %>
-            <%= f.text_area :content, :value => @post.content %>
+            <%= f.text_area :content, value: @post.content %>
             <%= f.fields_for :tags do |tag| %>
               <div class="check_box">
                 <span>タグ</span>
