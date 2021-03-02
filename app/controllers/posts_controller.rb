@@ -4,7 +4,10 @@ class PostsController < ApplicationController
     @posts = Post.all.order(created_at: :desc)
   end
 
-  def show; end
+  def show
+    @comments = @post.comments
+    @comment = Comment.new
+  end
 
   def new
     @post = Post.new
@@ -33,9 +36,12 @@ class PostsController < ApplicationController
   def edit; end
 
   def destroy
-    @post.destroy
-    flash[:notice] = "投稿を削除しました"
-    redirect_to('/posts/index')
+    if @post.destroy
+      flash[:notice] = "投稿を削除しました"
+      redirect_to('/posts/index')
+    else
+      redirect_to('/posts/edit')
+    end
   end
 
   private
